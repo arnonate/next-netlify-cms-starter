@@ -1,0 +1,78 @@
+backend:
+  name: git-gateway
+  branch: master
+media_folder: "public/images/uploads"
+site_url: "https://championsofcommerce.com"
+logo_url: "https://your-site.com/images/logo.svg"
+# locale: "en"
+show_preview_links: true
+publish_mode: editorial_workflow
+collections:
+  - name: post
+    label: "Post"
+    identifier_field: name
+    folder: "posts"
+    create: true
+    slug: "{{slug}}"
+    # preview: false
+    sortableFields: ["name"]
+    view_filters:
+      - label: "Faves"
+        field: "category"
+        pattern: "faves"
+      - label: "Craves"
+        field: "category"
+        pattern: "craves"
+      - label: "Retail"
+        field: "category"
+        pattern: "retail"
+      - label: "Services"
+        field: "category"
+        pattern: "services"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - {
+          label: "Category",
+          name: "category",
+          widget: "select",
+          options: ["faves", "craves", "retail", "service"],
+        }
+      - { label: "Featured Image", name: "thumbnail", widget: "image" }
+      - { label: "Website", name: "website", widget: "string", required: false }
+      - {
+          label: "Gift Card Link",
+          name: "giftcard",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Gift Card Number",
+          name: "number",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Offers Pickup",
+          name: "pickup",
+          widget: "boolean",
+          default: true,
+        }
+      - {
+          label: "Offers Delivery",
+          name: "delivery",
+          widget: "boolean",
+          default: true,
+        }
+      - {
+          label: "Masks Are Required",
+          name: "masks",
+          widget: "boolean",
+          default: true,
+        }
+      - {
+          label: "Employees Wear Masks",
+          name: "masked",
+          widget: "boolean",
+          default: true,
+        }
+      - { label: "Body", name: "body", widget: "markdown" }
